@@ -1,10 +1,15 @@
 import tkinter
 from tkinter import *
 from tkinter import messagebox 
+from PIL import ImageTk, Image 
+
+
 win = Tk()
 win.geometry('500x500')
 win.title("My friends Gallery")
 #main window with title 
+
+
 
 def exit_que():
     answer = messagebox.askquestion("confirm", "Are you sure you want to exit?")
@@ -22,19 +27,28 @@ exit.grid(row = 0 , column = 5 , pady = 2)
 
 # button display and characteristics 
 
+def show_friends():
+    Adam_picture = "code folder /coursework_images/adam.png"
+    image = Image.open(Adam_picture) #opens adamns picture 
+    size_image = image.resize((100,100)) # size of the image displayed on the window 
+    photo = ImageTk.PhotoImage(size_image) # save all the features of the picture in one variable 'photo'
+    
+    photo_label = Label(win,image = photo)
+    photo_label.grid(row = 1 , column = 1)
+    photo_label.grid = photo
+
+    adam_button = Button(win, text = "Adam", font = 'Helvetica 13 bold' , command = "")
+    adam_button.grid(row=2,column=1)
+
+
+
+show_friends = Button(win, text = 'Show Friends', bd = '3' , command = show_friends )
+show_friends.grid(row = 0 , column = 1 , pady = 2)
 
 
 
 
-
-
-
-
-
-
-
-show_friends = Button(win, text = 'Show Friends', bd = '3' , command = "" )
-
+                     
 # button to display friends
 
 clear_all = Button(win, text = 'Clear all', bd = '3' , command = "")
@@ -54,7 +68,7 @@ add_friend = Button(win, text = 'Add a Friend ', bd = '3' , command = "" )
 
 #x = Button(win , text = 'x' , bd = '1', command = "")
 
-show_friends.grid(row = 0 , column = 1 , pady = 2)
+
 clear_all.grid(row = 0 , column = 2 , pady = 2)
 delete_friend.grid(row = 0, column = 3 , pady = 2)
 add_friend.grid(row = 0 , column = 4 , pady = 2)
